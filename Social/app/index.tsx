@@ -12,7 +12,7 @@ export default function Index() {
   const { height } = Dimensions.get("window");
 
   // Snap points: peek 45%, full screen 100%
-  const snapPoints = useMemo(() => ["25%", "100%"], []);
+  const snapPoints = useMemo(() => ["15%", "100%"], []);
 
   // Impede que o usuário feche o BottomSheet completamente
   const handleSheetChanges = useCallback((index: number) => {
@@ -22,8 +22,11 @@ export default function Index() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={{ flex: 1, backgroundColor: isDark ? "#01070f" : "#d8e4f7" }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ color: isDark ? "#fff" : "#000", fontSize: 24 }}>Index</Text>
+        <View 
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          className=""
+        >
+          <View className="w-[150px] h-[150px] rounded-full bg-[#fff]"></View>
         </View>
 
         <BottomSheet
@@ -34,13 +37,13 @@ export default function Index() {
           enableOverDrag={true} // permite puxar acima do snap point
           handleIndicatorStyle={{
             backgroundColor: isDark ? "#6f757ec7" : "#04285742",
-            width: 45,
-            height: 5,
+            width: 48,
+            height: 6,
           }}
           backgroundStyle={{
-            backgroundColor: isDark ? "#01070f" : "#d8e4f7", // cor igual ao TabBar
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
+            backgroundColor: isDark ? "#1c1c1ce8" : "#f1f1f1f8", // cor igual ao TabBar
+            borderTopLeftRadius: 15,
+            borderTopRightRadius: 15,
           }}
           onChange={handleSheetChanges}
         >
